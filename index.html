@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Máy Tính Pro của NOC😈</title>
+<style>
+  body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .calculator {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px #000;
+    width: 250px;
+  }
+
+  #display {
+    width: 100%;
+    height: 40px;
+    font-size: 22px;
+    text-align: right;
+    margin-bottom: 10px;
+    padding-right: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #000;
+    color: lime;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  button {
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: #555;
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+  }
+
+  .popup-box {
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .popup button {
+    background-color: orange;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Máy Tính Pro Của NOC😈</h2>
+
+<div class="calculator">
+  <input type="text" id="display" readonly>
+  <div class="buttons">
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button onclick="press('/')">÷</button>
+
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button onclick="press('*')">×</button>
+
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button onclick="press('-')">−</button>
+
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="press('+')">+</button>
+
+    <button style="grid-column: span 4; background:red;" onclick="clearDisplay()">C</button>
+  </div>
+</div>
+
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Tính năng bị khóa 🚫</h3>
+    <p>Bản miễn phí không hỗ trợ tính toán.<br>
+    Vui lòng <b>nạp 36k</b> để sử dụng chức năng này🖕</p>
+    <button onclick="closePopup()">Đóng</button>
+  </div>
+</div>
+
+<script>
+  const display = document.getElementById('display');
+  const popup = document.getElementById('popup');
+
+  function press(val) {
+    display.value += val;
+  }
+
+  function clearDisplay() {
+    display.value = '';
+  }
+
+  function calculate() {
+    // Luôn bật bảng nạp tiền (troll người dùng)
+    popup.style.display = 'flex';
+  }
+
+  function closePopup() {
+    popup.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
